@@ -15,7 +15,7 @@ const QRCodeList = () => {
 
   const fetchQrCodes = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/qrcodes/all');
+      const response = await axios.get('http://localhost:10000/api/qrcodes/all');
       setQRCodes(response.data);
     } catch (error) {
       setErrorMessage('Error fetching QR codes.');
@@ -26,7 +26,7 @@ const QRCodeList = () => {
   const handleConfirm = async (id) => {
     try {
 
-      await axios.put(`http://localhost:5000/api/qrcodes/scan`, { text: id, confirmed: true });
+      await axios.put(`http://localhost:10000/api/qrcodes/scan`, { text: id, confirmed: true });
 
 
       setQRCodes((prevQRCodes) =>
@@ -40,7 +40,7 @@ const QRCodeList = () => {
   const handleDelete = async (id) => {
     try {
 
-      await axios.delete(`http://localhost:5000/api/qrcodes/delete/${id}`);
+      await axios.delete(`http://localhost:10000/api/qrcodes/delete/${id}`);
 
 
       setQRCodes((prevQRCodes) => prevQRCodes.filter((qr) => qr._id !== id));
