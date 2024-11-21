@@ -10,7 +10,7 @@ const QrCode = () => {
   useEffect(() => {
     const fetchScannedData = async () => {
       try {
-        const response = await axios.get('http://localhost:10000/api/qrcodes/all'); // Replace with your backend endpoint
+        const response = await axios.get('https://qrc-v18r.onrender.com//api/qrcodes/all'); // Replace with your backend endpoint
         setScannedTexts(response.data); // Assuming the backend sends an array of scanned QR codes
       } catch (error) {
         console.error('Error fetching QR Code data from backend:', error);
@@ -35,14 +35,14 @@ const QrCode = () => {
   // Save new scanned QR codes to the backend
   const saveScannedDataToBackend = async (scannedText) => {
     try {
-      await axios.post('http://localhost:10000/api/qrcodes/add', {
+      await axios.post('https://qrc-v18r.onrender.com//api/qrcodes/add', {
         text: scannedText,
         confirmed: false,
       });
       console.log('QR Code saved to backend:', scannedText);
 
       // Refresh the scanned texts after saving
-      const response = await axios.get('http://localhost:10000/api/qrcodes');
+      const response = await axios.get('https://qrc-v18r.onrender.com//api/qrcodes');
       setScannedTexts(response.data);
     } catch (error) {
       console.error('Error saving QR Code to backend:', error);
