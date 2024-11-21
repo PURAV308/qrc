@@ -14,7 +14,7 @@ const QRCodeScanner = () => {
 
   // Fetch all scanned QR codes from the backend on initial load
   useEffect(() => {
-    axios.get('https://qrc-v18r.onrender.com//api/qrcodes/all')
+    axios.get('https://qrc-v18r.onrender.com/api/qrcodes/all')
       .then((response) => {
         const scannedData = response.data.map((item) => ({
           id: item._id,
@@ -53,7 +53,7 @@ const QRCodeScanner = () => {
               if (existingCode) {
                 // Update the QR code as confirmed in the backend
                 try {
-                  await axios.put('https://qrc-v18r.onrender.com//api/qrcodes/scan', {
+                  await axios.put('https://qrc-v18r.onrender.com/api/qrcodes/scan', {
                     text: existingCode.id,
                   });
                   

@@ -23,7 +23,7 @@ const QRCodeGenerator = () => {
       // Save each QR code to the backend
       await Promise.all(
         newQRCodes.map((qr) =>
-          axios.post('https://qrc-v18r.onrender.com//api/qrcodes/add', { text: qr.text, confirmed: false })
+          axios.post('https://qrc-v18r.onrender.com/api/qrcodes/add', { text: qr.text, confirmed: false })
         )
       );
 
@@ -75,7 +75,7 @@ const QRCodeGenerator = () => {
           // Save each QR code to the backend
           await Promise.all(
             qrData.map((qr) =>
-              axios.post('https://qrc-v18r.onrender.com//api/qrcodes/add', { text: qr.text, confirmed: false })
+              axios.post('https://qrc-v18r.onrender.com/api/qrcodes/add', { text: qr.text, confirmed: false })
             )
           );
 
